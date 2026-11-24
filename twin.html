@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TWIN | Two minds .. one art - توين للديكور والمكرميات اليدوية</title>
+    <!-- استيراد خطوط عربية وإنجليزية فاخرة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- استيراد Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- استيراد أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF5EE',
+                        sand: '#EADDD0',
+                        creamDark: '#F2E7D8',
+                        espresso: '#4A2E1B',
+                        espressoLight: '#6E472B',
+                        caramel: '#B4825A',
+                        caramelLight: '#D5B08E',
+                        whatsapp: '#25D366',
+                        whatsappDark: '#1EBE5D',
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        serifBrand: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF5EE;
+            color: #4A2E1B;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* ملمس ورقي بوهيمي دافئ */
+        .paper-texture {
+            background-color: #FAF5EE;
+            background-image: 
+                radial-gradient(rgba(180, 130, 90, 0.14) 1px, transparent 0),
+                radial-gradient(rgba(74, 46, 27, 0.04) 1px, transparent 0);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+        }
+        .luxury-card {
+            box-shadow: 0 12px 32px -12px rgba(74, 46, 27, 0.10);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .luxury-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px -14px rgba(74, 46, 27, 0.18);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF5EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #B4825A;
+            border-radius: 9999px;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+            50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse {
+            animation: pulseGlow 2.4s infinite;
+        }
+    </style>
+</head>
+<body class="paper-texture min-h-screen flex flex-col selection:bg-caramel selection:text-white">
+
+    <!-- إشعار عائم أنيق (Toast) -->
+    <div id="toast-box" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-[70] transform transition-all duration-300 translate-y-24 opacity-0 pointer-events-none">
+        <div class="bg-espresso text-cream px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 border border-caramel/50">
+            <i id="toast-icon" class="fa-solid fa-circle-check text-caramelLight text-lg"></i>
+            <span id="toast-message" class="text-sm font-bold">تم الحفظ بنجاح</span>
+        </div>
+    </div>
+
+    <!-- الشريط الإعلاني العلوي للعرض الخاص -->
+    <div id="promo-banner" class="bg-gradient-to-l from-espresso via-espressoLight to-espresso text-cream py-2.5 px-4 text-center relative z-50 border-b border-caramel/40">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
+            <span class="bg-caramel text-white px-2.5 py-0.5 rounded-full text-[11px] uppercase">عرض الترحيب</span>
+            <span id="promo-banner-text">🎉 تخفيض 25% لأول أوردر على جميع قطع TWIN اليدوية!</span>
+            <a href="#products-section" class="underline decoration-caramelLight hover:text-caramelLight mr-1 transition-colors">اكتشف التشكيلة ←</a>
+        </div>
+    </div>
+
+    <!-- رأس الصفحة (Header) -->
+    <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-caramel/25 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+            
+            <!-- الشعار الدائري المخصص لـ TWIN -->
+            <a href="#" class="flex items-center gap-3 group shrink-0">
+                <div id="header-logo-container" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-sand/70 border-2 border-espresso flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                    <!-- يتم حقن اللوجو (SVG أو صورة مرفوعة) عبر JavaScript -->
+                </div>
+                <div>
+                    <h1 id="header-brand-name" class="font-serifBrand text-2xl sm:text-3xl font-bold tracking-[0.14em] text-espresso leading-none">TWIN</h1>
+                    <p id="header-tagline" class="font-serifBrand italic text-xs sm:text-sm text-caramel font-semibold mt-0.5">Two minds .. one art</p>
+                </div>
+            </a>
+
+            <!-- روابط التنقل -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-espresso/85">
+                <a href="#products-section" class="hover:text-caramel transition-colors">الكتالوج الكامل</a>
+                <button onclick="openCustomOrderModal()" class="hover:text-caramel transition-colors cursor-pointer">تفصيل حسب الطلب</button>
+                <a href="#about-section" class="hover:text-caramel transition-colors">لماذا TWIN؟</a>
+            </nav>
+
+            <!-- أزرار التفاعل ودخول الإدارة -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="openCustomOrderModal()" class="hidden sm:inline-flex items-center gap-2 bg-sand/80 hover:bg-caramel/25 text-espresso border border-caramel/40 text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full transition-all cursor-pointer">
+                    <i class="fa-solid fa-wand-magic-sparkles text-caramel"></i>
+                    <span>اطلب تصميم خاص</span>
+                </button>
+
+                <button id="admin-entry-btn" onclick="handleAdminButtonClick()" class="inline-flex items-center gap-2 bg-espresso hover:bg-espressoLight text-cream text-xs sm:text-sm font-bold px-3.5 sm:px-4 py-2.5 rounded-full shadow-md transition-all cursor-pointer active:scale-95">
+                    <i id="admin-entry-icon" class="fa-solid fa-lock text-caramelLight"></i>
+                    <span id="admin-entry-text">دخول الإدارة</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم الترحيبي الفاخر (Hero Section) -->
+    <section class="relative overflow-hidden py-12 sm:py-20 px-4 sm:px-6 border-b border-caramel/20">
+        <div class="absolute -top-28 -right-28 w-80 h-80 rounded-full bg-caramel/15 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-28 -left-28 w-96 h-96 rounded-full bg-espresso/10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- الشعار الكبير في الواجهة -->
+            <div class="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-6 group">
+                <div id="hero-logo-container" class="w-full h-full rounded-full bg-sand/80 border-2 border-espresso shadow-lg overflow-hidden flex items-center justify-center">
+                    <!-- يتم حقن اللوجو عبر JavaScript -->
+                </div>
+                <label title="تغيير اللوجو (متاح في وضع الإدارة)" class="hidden" id="hero-logo-upload-label">
+                    <span class="absolute inset-0 rounded-full bg-espresso/60 text-cream flex flex-col items-center justify-center text-xs font-bold cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-camera text-lg mb-1 text-caramelLight"></i>
+                        <span>تغيير اللوجو</span>
+                    </span>
+                    <input type="file" accept="image/*" class="hidden" onchange="handleLogoUpload(this)">
+                </label>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-espresso text-cream text-xs sm:text-sm font-bold mb-5 shadow">
+                <span class="text-caramelLight">✦</span>
+                <span>تخفيض 25% لأول أوردر على جميع القطع</span>
+                <span class="text-caramelLight">✦</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-espresso leading-tight mb-3">
+                لمسة فنية منسوجة يدوياً.. تحكي قصة دفء في كل ركن
+            </h2>
+
+            <p class="font-serifBrand italic text-xl sm:text-2xl text-caramel font-bold mb-5">
+                TWIN — Two minds .. one art
+            </p>
+
+            <p class="text-base sm:text-lg text-espresso/80 max-w-2xl mx-auto leading-relaxed mb-8">
+                نقدم في <span class="font-serifBrand font-bold text-espresso tracking-wider text-xl">TWIN</span> تشكيلة متكاملة من معلقات المكرمية، المرايات البوهيمية، الأرفف الخشبية، أطقم الكونكريت والمباخر، وتوزيعات المناسبات المصممة خصيصاً لذوقك.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <a href="#products-section" class="inline-flex items-center gap-2.5 bg-espresso hover:bg-espressoLight text-cream font-bold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                    <span>تصفح الـ 32 قطعة</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <button onclick="openCustomOrderModal()" class="inline-flex items-center gap-2.5 bg-white hover:bg-sand/50 text-espresso border-2 border-espresso/20 font-bold px-7 py-3.5 rounded-full transition-all cursor-pointer">
+                    <i class="fa-solid fa-palette text-caramel"></i>
+                    <span>اطلب لون أو مقاس مخصص</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الكتالوج والمنتجات (Catalog Section) -->
+    <main id="products-section" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex-grow w-full">
+        
+        <!-- رأس القسم وشريط البحث -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+            <div>
+                <div class="flex items-center gap-2 text-caramel font-bold text-xs sm:text-sm tracking-wider uppercase mb-1">
+                    <span>TWIN COLLECTION • TWO MINDS .. ONE ART</span>
+                    <span>•</span>
+                    <span id="products-count-badge">32 قطعة مميزة</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-espresso">تشكيلة الديكور والمكرميات</h2>
+                <p class="text-xs sm:text-sm text-espresso/70 mt-1">جميع القطع متاحة للتنفيذ بأي لون ومقاس — تُحدد التفاصيل عبر واتساب مع تخفيض 25% لأول أوردر</p>
+            </div>
+
+            <!-- مربع البحث السريع -->
+            <div class="relative w-full md:w-80">
+                <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث عن مرايات، معلقات، توزيعات..." class="w-full pl-4 pr-11 py-3 rounded-2xl bg-white border border-caramel/35 text-sm text-espresso placeholder:text-espresso/45 focus:outline-none focus:border-espresso shadow-sm">
+                <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-caramel"></i>
+            </div>
+        </div>
+
+        <!-- أزرار تصفية الأقسام (Category Tabs) -->
+        <div id="category-tabs" class="flex items-center gap-2.5 overflow-x-auto no-scrollbar pb-4 mb-8">
+            <!-- يتم توليد الأزرار تلقائياً -->
+        </div>
+
+        <!-- شبكة عرض المنتجات -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- يتم توليد البطاقات تلقائياً عبر JavaScript -->
+        </div>
+    </main>
+
+    <!-- قسم مميزات TWIN -->
+    <section id="about-section" class="bg-sand/45 border-y border-caramel/20 py-14 px-4 sm:px-6 mt-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-espresso">لماذا تختار قطع TWIN اليدوية؟</h3>
+                <p class="text-sm text-espresso/75 mt-2">Two minds .. one art — شغف مزدوج وإتقان يدوي في كل تفصيلة</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-cream p-6 rounded-3xl border border-caramel/25 text-center">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-espresso text-caramelLight flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-percent"></i>
+                    </div>
+                    <h4 class="font-bold text-espresso text-base mb-1">تخفيض 25% لأول أوردر</h4>
+                    <p class="text-xs text-espresso/70 leading-relaxed">عرض خاص على أول طلب لك من تشكيلة TWIN</p>
+                </div>
+                <div class="bg-cream p-6 rounded-3xl border border-caramel/25 text-center">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-espresso text-caramelLight flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h4 class="font-bold text-espresso text-base mb-1">هاند ميد 100%</h4>
+                    <p class="text-xs text-espresso/70 leading-relaxed">كل قطعة تُصنع يدوياً بحب وإتقان لتكون فريدة من نوعها</p>
+                </div>
+                <div class="bg-cream p-6 rounded-3xl border border-caramel/25 text-center">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-espresso text-caramelLight flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-swatchbook"></i>
+                    </div>
+                    <h4 class="font-bold text-espresso text-base mb-1">تخصيص الألوان والأسماء</h4>
+                    <p class="text-xs text-espresso/70 leading-relaxed">ننفذ أي قطعة بالألوان التي تناسب ديكور منزلك أو مناسبتك</p>
+                </div>
+                <div class="bg-cream p-6 rounded-3xl border border-caramel/25 text-center">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-espresso text-caramelLight flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="font-bold text-espresso text-base mb-1">شحن وتغليف آمن</h4>
+                    <p class="text-xs text-espresso/70 leading-relaxed">تغليف محكم يحافظ على جمال القطع والمرايات حتى باب منزلك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة (Footer) -->
+    <footer class="bg-espresso text-cream/90 border-t-4 border-caramel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-cream/15 text-center md:text-right">
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <div id="footer-logo-container" class="w-16 h-16 rounded-full bg-cream border-2 border-caramel shrink-0 overflow-hidden flex items-center justify-center">
+                        <!-- يتم حقن اللوجو عبر JavaScript -->
+                    </div>
+                    <div>
+                        <h3 class="font-serifBrand text-3xl font-bold tracking-[0.16em] text-cream">TWIN</h3>
+                        <p class="font-serifBrand italic text-sm text-caramelLight mt-0.5">Two minds .. one art</p>
+                        <p class="text-xs sm:text-sm text-cream/70 mt-2 max-w-md">فن المكرمية، الديكور اليدوي، وتوزيعات المناسبات السعيدة. اطلب قطعتك الآن واستمتع بتخفيض 25% لأول أوردر.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end gap-3">
+                    <span class="text-xs sm:text-sm font-bold text-caramelLight">للاستفسار وتفاصيل الطلبات عبر واتساب (تخفيض 25% لأول أوردر):</span>
+                    <a id="footer-whatsapp-link" href="https://wa.me/201019340603" target="_blank" class="inline-flex items-center gap-3 bg-whatsapp hover:bg-whatsappDark text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition-transform hover:scale-105">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span dir="ltr" id="footer-phone-display" class="text-base">01019340603</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-cream/65 gap-4">
+                <p>جميع الحقوق محفوظة &copy; 2026 <span class="font-serifBrand font-bold text-cream">TWIN</span> — <span class="font-serifBrand italic">Two minds .. one art</span></p>
+                <div class="flex items-center gap-4">
+                    <button onclick="handleAdminButtonClick()" class="text-caramelLight hover:text-white underline cursor-pointer transition-colors">
+                        <i class="fa-solid fa-user-shield ml-1"></i> لوحة تحكم الإدارة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب عائم في أسفل الشاشة -->
+    <a id="floating-whatsapp" href="https://wa.me/201019340603" target="_blank" title="تواصل معنا عبر واتساب" class="fixed bottom-5 left-5 z-40 w-14 h-14 bg-whatsapp hover:bg-whatsappDark text-white rounded-full shadow-2xl flex items-center justify-center text-3xl whatsapp-pulse transition-transform hover:scale-110">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- نافذة تكبير الصورة (Lightbox Modal) -->
+    <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 z-[60] hidden bg-espresso/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div onclick="event.stopPropagation()" class="bg-cream rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-caramel/40">
+            <div class="relative bg-sand/50 max-h-[65vh] flex items-center justify-center overflow-hidden">
+                <img id="lightbox-img" src="" alt="" class="max-h-[65vh] w-auto object-contain">
+                <button onclick="closeLightbox()" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-espresso/80 text-cream hover:bg-espresso flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <span class="absolute top-4 right-4 bg-espresso text-caramelLight text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+                    🎉 تخفيض 25% لأول أوردر
+                </span>
+            </div>
+            <div class="p-6">
+                <span id="lightbox-cat" class="text-xs font-bold text-caramel"></span>
+                <h3 id="lightbox-title" class="text-xl sm:text-2xl font-extrabold text-espresso mt-1"></h3>
+                <p id="lightbox-desc" class="text-sm text-espresso/80 mt-2 leading-relaxed"></p>
+                <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-caramel/20">
+                    <span class="text-xs font-bold text-espresso/70">الألوان والمقاسات تُحدد حسب اختيارك عبر واتساب</span>
+                    <a id="lightbox-wa-btn" href="#" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-whatsappDark text-white font-bold px-6 py-3 rounded-2xl shadow-md transition-all">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>اطلب الآن (تخفيض 25% لأول أوردر)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تخصيص الطلب (Custom Order Modal) -->
+    <div id="custom-order-modal" class="fixed inset-0 z-50 hidden bg-espresso/70 backdrop-blur-sm overflow-y-auto p-4 flex items-center justify-center">
+        <div class="bg-cream rounded-3xl max-w-lg w-full border border-caramel/40 shadow-2xl overflow-hidden my-8">
+            <div class="bg-espresso text-cream px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-wand-magic-sparkles text-caramelLight text-lg"></i>
+                    <h3 class="font-bold text-lg">صمّم قطعتك الخاصة من TWIN</h3>
+                </div>
+                <button onclick="closeCustomOrderModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div class="bg-sand/60 border border-caramel/30 rounded-2xl p-3 text-xs font-bold text-espresso flex items-center gap-2">
+                    <span>🎉</span>
+                    <span>يشمل الطلب المخصص عرض تخفيض 25% لأول أوردر!</span>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-espresso mb-1">نوع القطعة المطلوبة</label>
+                    <select id="custom-type" class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-white text-sm font-semibold text-espresso focus:outline-none">
+                        <option value="معلقة جدارية مكرمية">معلقة جدارية مكرمية</option>
+                        <option value="مرآة مكرمية">مرآة مكرمية</option>
+                        <option value="رف خشبي مكرمية">رف خشبي مكرمية</option>
+                        <option value="ستارة مكرمية">ستارة مكرمية</option>
+                        <option value="طقم كونكريت ومبخرة">طقم كونكريت ومبخرة</option>
+                        <option value="توزيعات مواليد / مناسبات">توزيعات مواليد / مناسبات</option>
+                        <option value="طارة مكرمية بالاسم">طارة مكرمية بالاسم</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-espresso mb-1">اللون المفضل للخيوط أو الديكور</label>
+                    <input type="text" id="custom-color" placeholder="مثال: أوف وايت، أخضر زمردي، كحلي، وردي..." class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-white text-sm text-espresso focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-espresso mb-1">المقاس التقريبي أو الاسم المطلوب كتابته (اختياري)</label>
+                    <input type="text" id="custom-notes" placeholder="مثال: مقاس 80×100 سم أو كتابة اسم معين..." class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-white text-sm text-espresso focus:outline-none">
+                </div>
+                <button onclick="sendCustomOrderToWhatsApp()" class="w-full bg-whatsapp hover:bg-whatsappDark text-white font-bold py-3.5 rounded-2xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>إرسال الطلب عبر واتساب (تخفيض 25% لأول أوردر)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تسجيل دخول الأدمن (Admin Login Modal: admin / admin) -->
+    <div id="login-modal" class="fixed inset-0 z-50 hidden bg-espresso/75 backdrop-blur-sm p-4 flex items-center justify-center">
+        <div class="bg-cream rounded-3xl max-w-md w-full border border-caramel/40 shadow-2xl overflow-hidden">
+            <div class="bg-espresso text-cream px-6 py-5 text-center relative">
+                <button onclick="closeLoginModal()" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="w-14 h-14 mx-auto rounded-full bg-caramel/20 border border-caramelLight flex items-center justify-center text-caramelLight text-2xl mb-2">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="font-bold text-xl">تسجيل دخول الإدارة</h3>
+                <p class="text-xs text-cream/75 mt-1">أدخل بيانات المدير للتحكم في اللوجو والمنتجات والصور</p>
+            </div>
+            <form onsubmit="submitAdminLogin(event)" class="p-6 space-y-4">
+                <div id="login-error" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs font-bold px-4 py-3 rounded-xl">
+                    اسم المستخدم أو كلمة المرور غير صحيحة!
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-espresso mb-1">اسم المستخدم (Username)</label>
+                    <input type="text" id="login-username" required placeholder="admin" dir="ltr" class="w-full px-4 py-3 rounded-xl border border-caramel/35 bg-white text-sm font-bold text-espresso text-left focus:outline-none focus:border-espresso">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-espresso mb-1">كلمة المرور (Password)</label>
+                    <input type="password" id="login-password" required placeholder="•••••" dir="ltr" class="w-full px-4 py-3 rounded-xl border border-caramel/35 bg-white text-sm font-bold text-espresso text-left focus:outline-none focus:border-espresso">
+                </div>
+                <button type="submit" class="w-full bg-espresso hover:bg-espressoLight text-cream font-bold py-3.5 rounded-2xl shadow-lg transition-all cursor-pointer">
+                    دخول إلى لوحة التحكم
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- لوحة تحكم الإدارة الكاملة (Full Admin Dashboard Modal) -->
+    <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-espresso/75 backdrop-blur-sm overflow-y-auto p-3 sm:p-6">
+        <div class="bg-cream border border-caramel/40 rounded-3xl max-w-5xl mx-auto my-2 shadow-2xl overflow-hidden">
+            
+            <!-- رأس لوحة التحكم -->
+            <div class="bg-espresso text-cream px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-caramel text-white flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">لوحة تحكم مدير متجر TWIN</h3>
+                        <p class="text-xs text-cream/75">ارفع اللوجو وصور المنتجات، أضف قطع جديدة، وحمّل الموقع جاهزاً للرفع</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="logoutAdmin()" class="bg-red-500/20 hover:bg-red-500/30 text-red-200 text-xs font-bold px-3.5 py-2 rounded-xl border border-red-400/30 cursor-pointer">
+                        <i class="fa-solid fa-right-from-bracket ml-1"></i> تسجيل خروج
+                    </button>
+                    <button onclick="closeAdminModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-cream cursor-pointer">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-6 max-h-[82vh] overflow-y-auto">
+                
+                <!-- بطاقات الإحصائيات السريعة -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-2xl border border-caramel/25 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-espresso/65 font-bold">إجمالي القطع بالمتجر</span>
+                            <p id="admin-stat-count" class="text-2xl font-extrabold text-espresso mt-0.5">32</p>
+                        </div>
+                        <i class="fa-solid fa-layer-group text-2xl text-caramel"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl border border-caramel/25 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-espresso/65 font-bold">العرض النشط</span>
+                            <p class="text-lg font-extrabold text-green-700 mt-0.5">تخفيض 25% لأول أوردر</p>
+                        </div>
+                        <i class="fa-solid fa-tags text-2xl text-green-600"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl border border-caramel/25 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-espresso/65 font-bold">واتساب الطلبات</span>
+                            <p id="admin-stat-wa" dir="ltr" class="text-lg font-extrabold text-espresso mt-0.5">01019340603</p>
+                        </div>
+                        <i class="fa-brands fa-whatsapp text-2xl text-whatsapp"></i>
+                    </div>
+                </div>
+
+                <!-- صندوق تصدير الموقع للرفع المجاني -->
+                <div class="bg-gradient-to-l from-sand to-creamDark p-5 rounded-2xl border-2 border-caramel flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-extrabold text-espresso text-base flex items-center gap-2">
+                            <i class="fa-solid fa-rocket text-caramel"></i>
+                            <span>جاهز لرفع موقع TWIN على الإنترنت؟</span>
+                        </h4>
+                        <p class="text-xs text-espresso/80 mt-1 leading-relaxed">بعد ما ترفع اللوجو وصور منتجاتك الحقيقية هنا، اضغط على الزر لتحميل ملف <code class="bg-white px-1.5 py-0.5 rounded font-bold">index.html</code> النهائي المتضمن للوجو والصور وارميه في <strong>Netlify Drop</strong> أو <strong>Tiiny.host</strong> للحصول على رابط مباشر.</p>
+                    </div>
+                    <button onclick="downloadStandaloneHTML()" class="shrink-0 bg-espresso hover:bg-espressoLight text-cream font-bold text-sm px-6 py-3.5 rounded-2xl shadow-lg flex items-center gap-2 cursor-pointer transition-transform active:scale-95">
+                        <i class="fa-solid fa-cloud-arrow-down text-caramelLight text-lg"></i>
+                        <span>تحميل الموقع الجاهز (index.html)</span>
+                    </button>
+                </div>
+
+                <!-- قسم إدارة شعار البراند (Logo Management) -->
+                <div class="bg-white p-5 rounded-2xl border border-caramel/25 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div id="admin-logo-preview" class="w-16 h-16 rounded-full bg-sand/70 border-2 border-caramel overflow-hidden flex items-center justify-center shrink-0"></div>
+                        <div>
+                            <h4 class="font-bold text-espresso text-sm sm:text-base">شعار براند TWIN (Two minds .. one art)</h4>
+                            <p class="text-xs text-espresso/70 mt-0.5">الشعار الدائري الفني جاهز، ويمكنك استبداله بصورة اللوجو من جهازك وتضمينه في الملف المُصدَّر.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <label class="cursor-pointer bg-espresso hover:bg-espressoLight text-cream text-xs font-bold px-4 py-2.5 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1.5">
+                            <i class="fa-solid fa-upload text-caramelLight"></i>
+                            <span>رفع صورة اللوجو</span>
+                            <input type="file" accept="image/*" class="hidden" onchange="handleLogoUpload(this)">
+                        </label>
+                        <button onclick="resetDefaultLogo()" class="bg-sand hover:bg-caramel/30 text-espresso text-xs font-bold px-3 py-2.5 rounded-xl cursor-pointer transition-colors" title="استعادة الشعار الفني المدمج">
+                            افتراضي
+                        </button>
+                    </div>
+                </div>
+
+                <!-- إعدادات العرض ورقم الواتساب -->
+                <div class="bg-white p-5 rounded-2xl border border-caramel/25 space-y-4">
+                    <h4 class="font-bold text-espresso flex items-center gap-2 border-b border-sand pb-2">
+                        <i class="fa-solid fa-gear text-caramel"></i>
+                        <span>إعدادات المتجر والشريط الإعلاني</span>
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-espresso mb-1">نص الشريط الإعلاني العلوي</label>
+                            <input type="text" id="admin-promo-input" class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-cream/40 text-sm font-semibold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-espresso mb-1">رقم الواتساب لاستقبال الطلبات</label>
+                            <input type="text" id="admin-wa-input" dir="ltr" class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-cream/40 text-sm font-bold text-right">
+                        </div>
+                    </div>
+                    <button onclick="saveAdminSettings()" class="bg-espresso hover:bg-espressoLight text-cream text-xs font-bold px-5 py-2.5 rounded-xl cursor-pointer">
+                        حفظ الإعدادات
+                    </button>
+                </div>
+
+                <!-- إضافة منتج جديد -->
+                <div class="bg-white p-5 rounded-2xl border border-caramel/25 space-y-4">
+                    <h4 class="font-bold text-espresso flex items-center gap-2 border-b border-sand pb-2">
+                        <i class="fa-solid fa-circle-plus text-caramel"></i>
+                        <span>إضافة قطعة جديدة للمتجر</span>
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-espresso mb-1">اسم القطعة *</label>
+                            <input type="text" id="new-prod-name" placeholder="مثال: معلقة مكرمية بوهيمية" class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-cream/40 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-espresso mb-1">القسم *</label>
+                            <select id="new-prod-cat" class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-cream/40 text-sm font-semibold">
+                                <option value="معلقات جدارية">معلقات جدارية</option>
+                                <option value="مرايات مكرمية">مرايات مكرمية</option>
+                                <option value="أرفف وستائر">أرفف وستائر</option>
+                                <option value="ديكور ومباخر كونكريت">ديكور ومباخر كونكريت</option>
+                                <option value="توزيعات وهدايا مناسبات">توزيعات وهدايا مناسبات</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-espresso mb-1">وصف القطعة</label>
+                        <textarea id="new-prod-desc" rows="2" placeholder="اكتب تفاصيل الخامة والألوان المتاحة..." class="w-full px-3.5 py-2.5 rounded-xl border border-caramel/35 bg-cream/40 text-sm"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-espresso mb-1">صورة القطعة من جهازك أو هاتفك</label>
+                        <input type="file" id="new-prod-file" accept="image/*" class="w-full text-xs text-espresso file:ml-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-sand file:text-espresso hover:file:bg-caramel/30 cursor-pointer">
+                    </div>
+                    <button onclick="addNewProduct()" class="bg-caramel hover:bg-espresso text-white text-sm font-bold px-6 py-2.5 rounded-xl transition-colors cursor-pointer">
+                        <i class="fa-solid fa-plus ml-1"></i> إضافة القطعة للمتجر
+                    </button>
+                </div>
+
+                <!-- إدارة وتحديث صور جميع المنتجات الـ 32 -->
+                <div class="bg-white p-5 rounded-2xl border border-caramel/25 space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-sand pb-3">
+                        <h4 class="font-bold text-espresso flex items-center gap-2">
+                            <i class="fa-solid fa-images text-caramel"></i>
+                            <span>جميع منتجات المتجر (اضغط "إرفاق صورتك" لوضع صورتك الحقيقية مكان أي قطعة)</span>
+                        </h4>
+                        <input type="text" id="admin-search-input" oninput="renderAdminProducts()" placeholder="بحث سريع في الإدارة..." class="px-3 py-1.5 rounded-xl border border-caramel/35 text-xs bg-cream/50">
+                    </div>
+                    <div id="admin-products-list" class="space-y-3 max-h-[420px] overflow-y-auto pl-1">
+                        <!-- يتم تعبئتها تلقائياً -->
+                    </div>
+                </div>
+
+                <!-- أداة الرفع الجماعي للصور (Bulk Photo Uploader) -->
+                <div class="bg-gradient-to-l from-creamDark to-white p-5 rounded-2xl border-2 border-dashed border-caramel space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <h4 class="font-extrabold text-espresso text-sm sm:text-base flex items-center gap-2">
+                                <i class="fa-solid fa-images text-caramel"></i>
+                                <span>رفع عدة صور دفعة واحدة (من المعرض أو الجهاز)</span>
+                            </h4>
+                            <p class="text-xs text-espresso/75 mt-1">اختر عدة صور معاً من جهازك أو هاتفك وسنوزعها تلقائياً على بطاقات المنتجات بالترتيب!</p>
+                        </div>
+                        <label class="shrink-0 cursor-pointer bg-caramel hover:bg-espresso text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl shadow transition-colors inline-flex items-center gap-2">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span>اختر عدة صور معاً</span>
+                            <input type="file" id="bulk-images-input" accept="image/*" multiple class="hidden" onchange="handleBulkImageUpload(this)">
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // شعار TWIN الدائري الفني المدمج (رقم 2 متداخل مع غصن نباتي ونجوم وخط Two minds .. one art)
+        const defaultTwinLogoSVG = `<svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="200" fill="#F8EFE3"/>
+            <circle cx="100" cy="100" r="93" fill="none" stroke="#5C361B" stroke-width="3.2"/>
+            <circle cx="100" cy="100" r="88" fill="none" stroke="#B88254" stroke-width="1.4"/>
+            <!-- النجمتان الجانبيتان -->
+            <path d="M58 67 C60 73, 62 75, 68 77 C62 79, 60 81, 58 87 C56 81, 54 79, 48 77 C54 75, 56 73, 58 67 Z" fill="#5C361B"/>
+            <path d="M148 82 C149.6 87, 151.4 88.8, 156.5 90.5 C151.4 92.2, 149.6 94, 148 99 C146.4 94, 144.6 92.2, 139.5 90.5 C144.6 88.8, 146.4 87, 148 82 Z" fill="#5C361B"/>
+            <!-- الغصن النباتي والأوراق -->
+            <path d="M98 117 C82 95, 71 76, 65 56" fill="none" stroke="#5C361B" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M84 96 C72 95, 65 89, 66 82 C74 84, 81 89, 84 96 Z" fill="#7D4C29"/>
+            <path d="M77 83 C65 81, 59 75, 61 68 C69 70, 75 76, 77 83 Z" fill="#5C361B"/>
+            <path d="M71 70 C61 67, 57 60, 60 54 C67 57, 71 63, 71 70 Z" fill="#B88254"/>
+            <path d="M89 102 C95 92, 102 87, 109 88 C105 95, 98 100, 89 102 Z" fill="#B88254"/>
+            <path d="M82 88 C88 79, 94 75, 100 76 C97 83, 90 87, 82 88 Z" fill="#7D4C29"/>
+            <path d="M76 75 C81 67, 86 64, 92 65 C89 71, 83 74, 76 75 Z" fill="#5C361B"/>
+            <!-- الرقم 2 الفني المتداخل -->
+            <path d="M79 45 C106 25, 146 38, 142 68 C139 92, 112 104, 96 116 L149 116 C141 124, 128 127, 114 127 L83 127 C86 113, 124 91, 127 67 C129 48, 103 39, 84 52 Z" fill="#6E4020"/>
+            <path d="M87 43 C111 28, 140 40, 137 66 C135 87, 109 101, 93 115" fill="none" stroke="#C69363" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M98 117 C118 112, 138 110, 152 103 C145 114, 128 121, 104 122 Z" fill="#8D5830"/>
+            <!-- كلمة TWIN -->
+            <text x="100" y="153" text-anchor="middle" fill="#4A2E1B" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="33" letter-spacing="3">TWIN</text>
+            <!-- خط الشعار الفرعي Two minds .. one art -->
+            <line x1="36" y1="165" x2="63" y2="165" stroke="#5C361B" stroke-width="1.1"/>
+            <text x="100" y="168.5" text-anchor="middle" fill="#5C361B" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11.5">Two minds .. one art</text>
+            <line x1="137" y1="165" x2="164" y2="165" stroke="#5C361B" stroke-width="1.1"/>
+            <!-- نجمة صغيرة أسفل الشعار -->
+            <path d="M100 174 C101.2 178, 102.5 179.3, 106.5 180.5 C102.5 181.7, 101.2 183, 100 187 C98.8 183, 97.5 181.7, 93.5 180.5 C97.5 179.3, 98.8 178, 100 174 Z" fill="#5C361B"/>
+        </svg>`;
+
+        // دالة توليد صورة SVG فنية مخصصة عالية الدقة تعمل فوراً في كل المتصفحات
+        function createArtisticPlaceholder(title, accentHex = '#B4825A', bgHex = '#F1E6D8') {
+            const safeTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="650" viewBox="0 0 800 650">
+                <rect width="800" height="650" fill="${bgHex}"/>
+                <rect x="24" y="24" width="752" height="602" rx="32" fill="#FAF5EE" stroke="${accentHex}" stroke-width="2" stroke-opacity="0.45"/>
+                <circle cx="400" cy="255" r="145" fill="${bgHex}" fill-opacity="0.55" stroke="${accentHex}" stroke-width="3" stroke-dasharray="10 6"/>
+                <circle cx="400" cy="255" r="122" fill="none" stroke="#4A2E1B" stroke-width="1.5" stroke-opacity="0.35"/>
+                <line x1="275" y1="145" x2="525" y2="145" stroke="#4A2E1B" stroke-width="9" stroke-linecap="round"/>
+                <path d="M305 145 L400 265 L495 145" fill="none" stroke="${accentHex}" stroke-width="4.5" stroke-linejoin="round"/>
+                <path d="M335 145 L400 225 L465 145" fill="none" stroke="#4A2E1B" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="400" cy="225" r="7" fill="${accentHex}"/>
+                <circle cx="400" cy="265" r="9" fill="#4A2E1B"/>
+                <line x1="320" y1="170" x2="320" y2="345" stroke="${accentHex}" stroke-width="3" stroke-linecap="round"/>
+                <line x1="350" y1="205" x2="350" y2="380" stroke="#4A2E1B" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="400" y1="265" x2="400" y2="415" stroke="${accentHex}" stroke-width="4" stroke-linecap="round"/>
+                <line x1="450" y1="205" x2="450" y2="380" stroke="#4A2E1B" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="480" y1="170" x2="480" y2="345" stroke="${accentHex}" stroke-width="3" stroke-linecap="round"/>
+                <text x="400" y="485" text-anchor="middle" fill="#4A2E1B" font-family="Cairo, Tahoma, Arial, sans-serif" font-weight="bold" font-size="25">${safeTitle}</text>
+                <text x="400" y="530" text-anchor="middle" fill="${accentHex}" font-family="Georgia, serif" font-style="italic" font-weight="bold" font-size="19">TWIN • Two minds .. one art</text>
+                <text x="400" y="568" text-anchor="middle" fill="#4A2E1B" fill-opacity="0.65" font-family="Cairo, Tahoma, Arial, sans-serif" font-size="15">سجّل كمدير (admin) لإرفاق صورة القطعة الحقيقية</text>
+            </svg>`;
+            return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+        }
+
+        // الكتالوج الكامل لجميع المنتجات الـ 32 (بدون أسعار مع عرض تخفيض 25% لأول أوردر)
+        const initialProducts = [
+            {
+                id: 1,
+                name: "معلقة جدارية مكرمية باللون الأخضر الزمردي",
+                category: "معلقات جدارية",
+                desc: "تصميم هندسي فاخر باللون الأخضر الزمردي مع شراشيب متدرجة وخرز خشبي طبيعي، معلقة على عصا خشبية.",
+                image: createArtisticPlaceholder("معلقة مكرمية أخضر زمردي", "#1E5631", "#E6EFE9"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 2,
+                name: "معلقة مكرمية أزرق سماوي مع رف خشبي",
+                category: "أرفف وستائر",
+                desc: "قطعة فنية تجمع بين العقد اليدوية باللون الأزرق السماوي وخرز خشبي مع رف متين لعرض المزهريات والتحف.",
+                image: createArtisticPlaceholder("معلقة أزرق سماوي برف", "#5B7C99", "#E8EFF5"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 3,
+                name: "ستارة مكرمية بوهيمية للممرات والأبواب",
+                category: "أرفف وستائر",
+                desc: "ستارة مكرمية طويلة باللون البيج الطبيعي بتفاصيل هندسية متقنة تمنح المداخل والممرات لمسة دافئة.",
+                image: createArtisticPlaceholder("ستارة مكرمية للممرات", "#B4825A", "#F3ECE3"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 4,
+                name: "معلقة جدارية كبيرة لغرف النوم - أخضر داكن",
+                category: "معلقات جدارية",
+                desc: "قطعة فنية عريضة بتصميم انسيابي فاخر باللون الأخضر الداكن، مثالية للتعليق فوق السرير أو الأريكة.",
+                image: createArtisticPlaceholder("معلقة كبيرة أخضر داكن", "#1B4332", "#E5ECE9"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 5,
+                name: "مرآة دائرية بإطار مكرمية كحلي وحبل زينة",
+                category: "مرايات مكرمية",
+                desc: "مرآة دائرية بتصميم الشمس باللون الأزرق الكحلي مزينة بكرات خشبية وحبل شراشيب متناسق أسفلها.",
+                image: createArtisticPlaceholder("مرآة مكرمية كحلي", "#233D58", "#E6ECF2"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 6,
+                name: "إطارات خشبية مزينة بزهور المكرمية",
+                category: "معلقات جدارية",
+                desc: "طقم ديكور جداري فني يدمج الإطارات الخشبية والأغصان الطبيعية مع زهور وشراشيب المكرمية البيضاء.",
+                image: createArtisticPlaceholder("إطارات بزهور المكرمية", "#9C6644", "#F4EDE4"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 7,
+                name: "ستارة مكرمية مزدوجة للنوافذ والشرفات",
+                category: "أرفف وستائر",
+                desc: "ستارة فاخرة من قطعتين باللون الأوف وايت بتصميم شبكي في المنتصف ولمسات خرز خشبي أنيقة.",
+                image: createArtisticPlaceholder("ستارة مكرمية مزدوجة", "#B4825A", "#F5EFE6"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 8,
+                name: "لوحة آية قرآنية خشبية مع مكرمية - قل هو الله أحد",
+                category: "معلقات جدارية",
+                desc: "قطعة روحانية تجمع بين الخط العربي المحفور على الخشب وتفاصيل المكرمية اليدوية باللون البيج والخرز البني.",
+                image: createArtisticPlaceholder("لوحة آية قرآنية ومكرمية", "#7F5539", "#F2E9DF"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 9,
+                name: "طقم مبخرة وفازة كونكريت فاخر - ذهبي وأبيض",
+                category: "ديكور ومباخر كونكريت",
+                desc: "طقم ديكور يدوي يضم مبخرة بغطاء ذهبي مزخرف، فازة مضلعة، وصينية مكتوب عليها اللهم بارك هذا البيت.",
+                image: createArtisticPlaceholder("طقم مبخرة ذهبي وأبيض", "#C59B27", "#F6F1E7"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 10,
+                name: "طقم مبخرة اليقطين وفازة بوهيمية",
+                category: "ديكور ومباخر كونكريت",
+                desc: "صينية كونكريت منقطة بالقلوب البنية مع مبخرة بشكل يقطين بغطاء ذهبي وفازة مضلعة أنيقة.",
+                image: createArtisticPlaceholder("طقم مبخرة اليقطين", "#A45A32", "#F5EBE3"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 11,
+                name: "معلقة مكرمية بريش وألوان بيج وبني مع خرز خشبي",
+                category: "معلقات جدارية",
+                desc: "قطعة فنية غنية بالتفاصيل والريش المنسوج يدوياً بتدرجات البيج والبني الدافئ مع صفوف الخرز الخشبي.",
+                image: createArtisticPlaceholder("معلقة ريش بيج وبني", "#8C6239", "#F2E8DC"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 12,
+                name: "حبل إضاءة مكرمية بالنجوم والأهلة والشراشيب",
+                category: "معلقات جدارية",
+                desc: "زينة جدارية مضيئة بتفاصيل النجوم والهلال وشراشيب جانبية تضفي أجواء دافئة ومبهجة في الغرفة.",
+                image: createArtisticPlaceholder("حبل إضاءة نجوم وأهلة", "#D4A373", "#FAF3E8"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 13,
+                name: "مرآة مكرمية دائرية بتفاصيل عقد متشابكة",
+                category: "مرايات مكرمية",
+                desc: "مرآة دائرية بإطار مكرمية أزرق رمادي بعقد فنية متقنة وحواف منسوجة تضفي فخامة على الحائط.",
+                image: createArtisticPlaceholder("مرآة مكرمية عقد متشابكة", "#6B8299", "#EBF0F5"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 14,
+                name: "معلقة مكرمية مع رف خشبي ونباتات صغيرة",
+                category: "أرفف وستائر",
+                desc: "رف خشبي معلق بعقد مكرمية أوف وايت مع شراشيب من الأسفل مناسب لتنسيق الصباريات والشموع.",
+                image: createArtisticPlaceholder("رف خشبي مكرمية", "#B4825A", "#F4EDE4"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 15,
+                name: "توزيعات بيبي شاور مضلعة باللون الوردي والأبيض",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "مجموعات توزيعات صغيرة مزينة بشرائط ساتان وبطاقات مخصصة بالاسم للمواليد والمناسبات السعيدة.",
+                image: createArtisticPlaceholder("توزيعات بيبي شاور وردي", "#E5989B", "#FCEFF0"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 16,
+                name: "طقم ضيافة وتوزيعات كونكريت أزرق مع شكل فيل",
+                category: "ديكور ومباخر كونكريت",
+                desc: "صينية ديكور صغيرة تضم علبة مضلعة بشريط أزرق وقطعة ديكور لطيفة على شكل فيل للمواليد.",
+                image: createArtisticPlaceholder("طقم كونكريت أزرق وفيل", "#6D9DC5", "#ECF3F9"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 17,
+                name: "طقم ضيافة وتوزيعات كونكريت وردي مع شكل زرافة",
+                category: "ديكور ومباخر كونكريت",
+                desc: "صينية وردية أنيقة مع علبة مضلعة بفيونكة أورجانزا وقطعة ديكور على شكل زرافة لطيفة.",
+                image: createArtisticPlaceholder("طقم كونكريت وردي وزرافة", "#E08E9B", "#FBEFF1"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 18,
+                name: "توزيعات صغيرة على شكل زرافات بألوان متعددة",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "قطع توزيعات صغيرة مغلفة بأكياس شفافة وشرائط ساتان بألوان متنوعة مع كروت شكر للهدايا.",
+                image: createArtisticPlaceholder("توزيعات زرافات ملونة", "#E9C46A", "#FDF7E7"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 19,
+                name: "معلقة مكرمية برف خشبي ومرآة دائرية في المنتصف",
+                category: "مرايات مكرمية",
+                desc: "تصميم متكامل يجمع بين الرف الخشبي للنباتات والمرآة الدائرية وأوراق المكرمية المعلقة على الجانبين.",
+                image: createArtisticPlaceholder("مرآة مكرمية برف خشبي", "#B4825A", "#F3ECE3"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 20,
+                name: "ستاند وتوزيعات بيبي شاور وردي مع زهور وفيل صغير",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "تنسيق ديكور وتوزيعات باللون الوردي والأبيض مع فازة زهور وفيل صغير وبطاقة مخصصة باسم المولودة.",
+                image: createArtisticPlaceholder("ستاند بيبي شاور وردي", "#E5989B", "#FCEFF0"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 21,
+                name: "شموع وتوزيعات مواليد على شكل بيبي نائم",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "شموع يدوية ناعمة على شكل بيبي نائم فوق وسادة بألوان الأبيض والوردي والأزرق لتوزيعات السبوع.",
+                image: createArtisticPlaceholder("شموع بيبي نائم", "#D4A373", "#FAF2E8"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 22,
+                name: "توزيعات قدم بيبي مغلفة بكروت مناسبات",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "توزيعات صغيرة على شكل أقدام بيبي بألوان وردية وفيروزية مغلفة بشرائط ساتان وكروت مطبوعة.",
+                image: createArtisticPlaceholder("توزيعات قدم بيبي", "#84A59D", "#EDF4F2"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 23,
+                name: "شموع وتوزيعات على شكل أصداف بحرية",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "شموع معطرة داخل أصداف بحرية بلمسات بنفسجية ناعمة ومغلفة بشرائط ورقية مخصصة بالاسم.",
+                image: createArtisticPlaceholder("شموع أصداف بحرية", "#9D8189", "#F5EFF1"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 24,
+                name: "توزيعات على شكل نجمة البحر بتفاصيل لؤلؤية",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "قطع شموع وديكور على شكل نجمة البحر مرصعة باللؤلؤ ومزينة بشرائط فوشيا وبطاقات مخصصة.",
+                image: createArtisticPlaceholder("توزيعات نجمة البحر", "#D66885", "#FAECF0"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 25,
+                name: "معلقة مكرمية متعددة الأرفف الخشبية - 3 أرفف",
+                category: "أرفف وستائر",
+                desc: "معلقة جدارية طويلة بثلاثة أرفف خشبية متينة لعرض النباتات والتحف والمزهريات بأسلوب بوهيمي أنيق.",
+                image: createArtisticPlaceholder("معلقة مكرمية 3 أرفف", "#9C6644", "#F4ECE2"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 26,
+                name: "صواني ديكور وتوزيعات بألوان وتأثيرات رخامية",
+                category: "ديكور ومباخر كونكريت",
+                desc: "صواني كونكريت بيضاوية بألوان رخامية متنوعة مزينة بشرائط وردية وبطاقات شكر للمناسبات.",
+                image: createArtisticPlaceholder("صواني كونكريت رخامية", "#B5838D", "#F7EFF1"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 27,
+                name: "معلقة مكرمية لتعليق الصور والذكريات بزهور",
+                category: "معلقات جدارية",
+                desc: "معلقة جدارية مزينة بزهور مكرمية على الجانبين مع مشابك خشبية لتعليق الصور الفوتوغرافية والذكريات.",
+                image: createArtisticPlaceholder("معلقة صور بزهور", "#B4825A", "#F5EFE6"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 28,
+                name: "معلقة مكرمية طولية لتعليق الصور",
+                category: "معلقات جدارية",
+                desc: "تصميم جداري عمودي بتفاصيل مضفرة أنيقة لتعليق الصور العائلية أو الذكريات في أي زاوية.",
+                image: createArtisticPlaceholder("معلقة صور طولية", "#B4825A", "#F4EDE4"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 29,
+                name: "حامل رول مكرمية خشبي للحمام",
+                category: "أرفف وستائر",
+                desc: "حامل عملي وأنيق معلق بعقد مكرمية وعصا خشبية وشراشيب متاح باللون الأوف وايت والبيج الطبيعي.",
+                image: createArtisticPlaceholder("حامل رول مكرمية", "#A68A64", "#F3EFE8"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 30,
+                name: "معلقة مكرمية سحابة وقوس قزح بإضاءة واسم خشبي",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "قطعة ديكور مميزة لغرف الأطفال على شكل سحابة مضيئة وقوس قزح مع اسم خشبي عربي وأوراق مكرمية.",
+                image: createArtisticPlaceholder("سحابة مكرمية مضيئة بالاسم", "#5B7C99", "#ECF2F7"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 31,
+                name: "طارة مكرمية دائرية مخصصة بالاسم مع أوراق ملونة",
+                category: "توزيعات وهدايا مناسبات",
+                desc: "طارة مكرمية دائرية يتوسطها الاسم بالخشب الملون وتتدلى منها أوراق مكرمية وشراشيب أنيقة لغرف الأطفال.",
+                image: createArtisticPlaceholder("طارة مكرمية بالاسم", "#4A6FA5", "#EBF0F7"),
+                badge: "تخفيض 25% لأول أوردر"
+            },
+            {
+                id: 32,
+                name: "معلقة مكرمية هندسية بأرفف خشبية غير متماثلة وخرز",
+                category: "أرفف وستائر",
+                desc: "تصميم عصري فريد يجمع بين الأرفف الخشبية المتدرجة وعقد المكرمية الهندسية المزينة بخرز خشبي سداسي.",
+                image: createArtisticPlaceholder("أرفف مكرمية هندسية", "#B4825A", "#F4EDE4"),
+                badge: "تخفيض 25% لأول أوردر"
+            }
+        ];
+
+        // حالة متجر TWIN المحفوظة
+        let storeState = JSON.parse(localStorage.getItem('twin_full_catalog_v1')) || {
+            promoText: "🎉 تخفيض 25% لأول أوردر على جميع قطع TWIN اليدوية!",
+            whatsapp: "01019340603",
+            customLogoUrl: "",
+            products: initialProducts
+        };
+
+        let activeCategory = "الكل";
+        let isAdminLoggedIn = localStorage.getItem('twin_admin_auth') === 'true';
+
+        const categories = [
+            "الكل",
+            "معلقات جدارية",
+            "مرايات مكرمية",
+            "أرفف وستائر",
+            "ديكور ومباخر كونكريت",
+            "توزيعات وهدايا مناسبات"
+        ];
+
+        // تنسيق رقم الواتساب بصيغة دولية
+        function getIntlPhone() {
+            let digits = storeState.whatsapp.replace(/\D/g, '');
+            if (digits.startsWith('01')) return '2' + digits;
+            return digits;
+        }
+
+        // عرض إشعار عائم
+        function showToast(msg, isError = false) {
+            const box = document.getElementById('toast-box');
+            const text = document.getElementById('toast-message');
+            const icon = document.getElementById('toast-icon');
+            text.textContent = msg;
+            icon.className = isError 
+                ? "fa-solid fa-circle-exclamation text-red-400 text-lg" 
+                : "fa-solid fa-circle-check text-caramelLight text-lg";
+            box.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                box.classList.add('translate-y-24', 'opacity-0');
+            }, 3200);
+        }
+
+        // حفظ الحالة في LocalStorage
+        function persistStore() {
+            try {
+                localStorage.setItem('twin_full_catalog_v1', JSON.stringify(storeState));
+            } catch (e) {
+                console.warn("Storage limit reached, keeping in memory for export.");
+            }
+            updateUI();
+        }
+
+        // رسم الشعار في الهيدر، الهيرو، الفوتر، ولوحة الإدارة
+        function renderAllLogos() {
+            const content = storeState.customLogoUrl
+                ? `<img src="${storeState.customLogoUrl}" alt="TWIN Logo" class="w-full h-full object-cover">`
+                : defaultTwinLogoSVG;
+
+            document.getElementById('header-logo-container').innerHTML = content;
+            document.getElementById('hero-logo-container').innerHTML = content;
+            document.getElementById('footer-logo-container').innerHTML = content;
+            const adminPreview = document.getElementById('admin-logo-preview');
+            if (adminPreview) adminPreview.innerHTML = content;
+
+            const heroLabel = document.getElementById('hero-logo-upload-label');
+            if (heroLabel) {
+                if (isAdminLoggedIn) heroLabel.classList.remove('hidden');
+                else heroLabel.classList.add('hidden');
+            }
+        }
+
+        // تحديث الواجهة بالكامل
+        function updateUI() {
+            renderAllLogos();
+            document.getElementById('promo-banner-text').textContent = storeState.promoText;
+            document.getElementById('footer-phone-display').textContent = storeState.whatsapp;
+            
+            const waBase = `https://wa.me/${getIntlPhone()}?text=${encodeURIComponent("أهلاً TWIN (Two minds .. one art) 🌿، حابب أستفسر عن المنتجات وأستفيد بعرض تخفيض 25% لأول أوردر.")}`;
+            document.getElementById('footer-whatsapp-link').href = waBase;
+            document.getElementById('floating-whatsapp').href = waBase;
+
+            // تحديث زر الإدارة في الهيدر
+            const adminBtnText = document.getElementById('admin-entry-text');
+            const adminBtnIcon = document.getElementById('admin-entry-icon');
+            if (isAdminLoggedIn) {
+                adminBtnText.textContent = "لوحة الإدارة (مفتوحة)";
+                adminBtnIcon.className = "fa-solid fa-unlock text-green-400";
+            } else {
+                adminBtnText.textContent = "دخول الإدارة";
+                adminBtnIcon.className = "fa-solid fa-lock text-caramelLight";
+            }
+
+            renderCategoryTabs();
+            filterProducts();
+        }
+
+        // رسم أزرار الأقسام
+        function renderCategoryTabs() {
+            const container = document.getElementById('category-tabs');
+            container.innerHTML = '';
+            categories.forEach(cat => {
+                const count = cat === "الكل" 
+                    ? storeState.products.length 
+                    : storeState.products.filter(p => p.category === cat).length;
+                
+                const isActive = activeCategory === cat;
+                const btn = document.createElement('button');
+                btn.onclick = () => {
+                    activeCategory = cat;
+                    renderCategoryTabs();
+                    filterProducts();
+                };
+                btn.className = `shrink-0 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                    isActive 
+                    ? 'bg-espresso text-cream shadow-md' 
+                    : 'bg-white hover:bg-sand/70 text-espresso border border-caramel/30'
+                }`;
+                btn.innerHTML = `<span>${cat}</span><span class="text-[11px] px-2 py-0.5 rounded-full ${isActive ? 'bg-caramel text-white' : 'bg-sand text-espresso'}">${count}</span>`;
+                container.appendChild(btn);
+            });
+        }
+
+        // تصفية وعرض المنتجات (بدون أسعار، مع شارة ورسالة تخفيض 25% لأول أوردر)
+        function filterProducts() {
+            const query = document.getElementById('search-input').value.trim().toLowerCase();
+            const filtered = storeState.products.filter(p => {
+                const matchesCat = activeCategory === "الكل" || p.category === activeCategory;
+                const matchesQuery = !query || p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
+                return matchesCat && matchesQuery;
+            });
+
+            document.getElementById('products-count-badge').textContent = `${filtered.length} قطعة معروضة`;
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 bg-white/70 rounded-3xl border border-caramel/25">
+                        <i class="fa-solid fa-magnifying-glass text-3xl text-caramel mb-3"></i>
+                        <p class="font-bold text-espresso">لم نجد قطعاً مطابقة لبحثك</p>
+                        <button onclick="document.getElementById('search-input').value=''; activeCategory='الكل'; updateUI();" class="mt-3 text-xs font-bold bg-espresso text-cream px-5 py-2 rounded-full cursor-pointer">عرض كل القطع</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const intlPhone = getIntlPhone();
+
+            filtered.forEach(product => {
+                const realIndex = storeState.products.findIndex(item => item.id === product.id);
+                const waMessage = `أهلاً TWIN (Two minds .. one art) 🌿، حابب أطلب قطعة:\n*${product.name}*\nوأستفيد بعرض تخفيض 25% لأول أوردر!`;
+                const waUrl = `https://wa.me/${intlPhone}?text=${encodeURIComponent(waMessage)}`;
+
+                const adminPhotoOverlay = isAdminLoggedIn ? `
+                    <label onclick="event.stopPropagation()" class="absolute inset-0 bg-espresso/45 hover:bg-espresso/60 backdrop-blur-[1px] flex flex-col items-center justify-center gap-2 cursor-pointer transition-all z-10">
+                        <span class="bg-cream text-espresso font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-full shadow-xl border-2 border-caramel flex items-center gap-2 transform hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-camera text-caramel text-base"></i>
+                            <span>تغيير الصورة</span>
+                        </span>
+                        <span class="text-[11px] font-bold text-cream bg-espresso/80 px-2.5 py-0.5 rounded-full">اضغط لاختيار الصورة من جهازك</span>
+                        <input type="file" accept="image/*" class="hidden" onchange="replaceProductImage(${realIndex}, this)">
+                    </label>
+                ` : `
+                    <span class="absolute bottom-3 left-3 bg-cream/90 text-espresso text-[10px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-expand ml-1"></i> تكبير
+                    </span>
+                `;
+
+                const card = document.createElement('article');
+                card.className = 'bg-white rounded-3xl overflow-hidden border border-caramel/25 luxury-card flex flex-col group';
+                card.innerHTML = `
+                    <div onclick="openLightbox(${product.id})" class="relative aspect-[4/3] overflow-hidden bg-sand/40 cursor-zoom-in">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 z-20 bg-espresso/95 backdrop-blur-sm text-caramelLight text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md border border-caramel/40">
+                            🎉 ${product.badge || 'تخفيض 25% لأول أوردر'}
+                        </span>
+                        ${adminPhotoOverlay}
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold text-caramel">${product.category}</span>
+                            <h3 class="text-base sm:text-lg font-extrabold text-espresso mt-0.5 leading-snug line-clamp-2">${product.name}</h3>
+                            <p class="text-xs text-espresso/75 leading-relaxed mt-2 line-clamp-3">${product.desc}</p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-sand">
+                            <div class="flex items-center justify-between text-[11px] font-bold text-espresso/70 mb-2.5">
+                                <span><i class="fa-solid fa-palette text-caramel ml-1"></i> متاح تنفيذ أي لون</span>
+                                <span class="text-green-700">تخفيض 25% لأول أوردر</span>
+                            </div>
+                            <a href="${waUrl}" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-whatsappDark text-white font-bold text-sm py-3 px-4 rounded-2xl shadow hover:shadow-lg transition-all active:scale-98">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>اطلب الآن عبر واتساب</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // نافذة تكبير الصورة
+        function openLightbox(id) {
+            const product = storeState.products.find(p => p.id === id);
+            if (!product) return;
+            document.getElementById('lightbox-img').src = product.image;
+            document.getElementById('lightbox-cat').textContent = product.category;
+            document.getElementById('lightbox-title').textContent = product.name;
+            document.getElementById('lightbox-desc').textContent = product.desc;
+            const waMessage = `أهلاً TWIN (Two minds .. one art) 🌿، حابب أطلب قطعة:\n*${product.name}*\nوأستفيد بعرض تخفيض 25% لأول أوردر!`;
+            document.getElementById('lightbox-wa-btn').href = `https://wa.me/${getIntlPhone()}?text=${encodeURIComponent(waMessage)}`;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        // نافذة تخصيص الطلب
+        function openCustomOrderModal() {
+            document.getElementById('custom-order-modal').classList.remove('hidden');
+        }
+
+        function closeCustomOrderModal() {
+            document.getElementById('custom-order-modal').classList.add('hidden');
+        }
+
+        function sendCustomOrderToWhatsApp() {
+            const type = document.getElementById('custom-type').value;
+            const color = document.getElementById('custom-color').value.trim() || "حسب الاتفاق";
+            const notes = document.getElementById('custom-notes').value.trim() || "لا يوجد";
+            const text = `أهلاً TWIN (Two minds .. one art) 🌿، أريد تفصيل قطعة خاصة والاستفادة بعرض تخفيض 25% لأول أوردر:\n- النوع: ${type}\n- اللون المطلوب: ${color}\n- المقاس / ملاحظات: ${notes}`;
+            window.open(`https://wa.me/${getIntlPhone()}?text=${encodeURIComponent(text)}`, '_blank');
+            closeCustomOrderModal();
+        }
+
+        // نظام تسجيل دخول الإدارة (admin / admin)
+        function handleAdminButtonClick() {
+            if (isAdminLoggedIn) {
+                openAdminModal();
+            } else {
+                document.getElementById('login-error').classList.add('hidden');
+                document.getElementById('login-username').value = '';
+                document.getElementById('login-password').value = '';
+                document.getElementById('login-modal').classList.remove('hidden');
+            }
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+        }
+
+        function submitAdminLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('login-username').value.trim();
+            const pass = document.getElementById('login-password').value.trim();
+
+            if (user === 'admin' && pass === 'admin') {
+                isAdminLoggedIn = true;
+                localStorage.setItem('twin_admin_auth', 'true');
+                closeLoginModal();
+                updateUI();
+                openAdminModal();
+                showToast("مرحباً بك في لوحة تحكم TWIN!");
+            } else {
+                document.getElementById('login-error').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            localStorage.removeItem('twin_admin_auth');
+            closeAdminModal();
+            updateUI();
+            showToast("تم تسجيل الخروج من الإدارة");
+        }
+
+        // فتح وإدارة لوحة التحكم
+        function openAdminModal() {
+            document.getElementById('admin-stat-count').textContent = storeState.products.length;
+            document.getElementById('admin-stat-wa').textContent = storeState.whatsapp;
+            document.getElementById('admin-promo-input').value = storeState.promoText;
+            document.getElementById('admin-wa-input').value = storeState.whatsapp;
+            renderAllLogos();
+            renderAdminProducts();
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function saveAdminSettings() {
+            const promo = document.getElementById('admin-promo-input').value.trim();
+            const wa = document.getElementById('admin-wa-input').value.trim();
+            if (promo) storeState.promoText = promo;
+            if (wa) storeState.whatsapp = wa;
+            document.getElementById('admin-stat-wa').textContent = storeState.whatsapp;
+            persistStore();
+            showToast("تم حفظ إعدادات متجر TWIN بنجاح");
+        }
+
+        // ضغط الصور واللوجو المرفوع من الجهاز وتضمينه كـ Data URL
+        function compressUploadedImage(file, callback, maxDim = 850, quality = 0.82) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    let w = img.width;
+                    let h = img.height;
+                    if (w > maxDim || h > maxDim) {
+                        if (w > h) {
+                            h = Math.round((h * maxDim) / w);
+                            w = maxDim;
+                        } else {
+                            w = Math.round((w * maxDim) / h);
+                            h = maxDim;
+                        }
+                    }
+                    canvas.width = w;
+                    canvas.height = h;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+                    callback(canvas.toDataURL('image/jpeg', quality));
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // رفع صورة اللوجو الجديدة
+        function handleLogoUpload(input) {
+            if (input.files && input.files[0]) {
+                compressUploadedImage(input.files[0], (dataUrl) => {
+                    storeState.customLogoUrl = dataUrl;
+                    persistStore();
+                    showToast("تم تحديث شعار TWIN بنجاح!");
+                }, 600, 0.88);
+            }
+        }
+
+        // استعادة الشعار الفني المدمج
+        function resetDefaultLogo() {
+            storeState.customLogoUrl = "";
+            persistStore();
+            showToast("تمت استعادة الشعار الفني الافتراضي لـ TWIN");
+        }
+
+        // إضافة منتج جديد
+        function addNewProduct() {
+            const name = document.getElementById('new-prod-name').value.trim();
+            const cat = document.getElementById('new-prod-cat').value;
+            const desc = document.getElementById('new-prod-desc').value.trim() || "قطعة يدوية مميزة من TWIN متاحة للتنفيذ بأي لون ومقاس.";
+            const fileInput = document.getElementById('new-prod-file');
+
+            if (!name) {
+                showToast("يرجى كتابة اسم القطعة أولاً", true);
+                return;
+            }
+
+            const finish = (imgUrl) => {
+                storeState.products.unshift({
+                    id: Date.now(),
+                    name: name,
+                    category: cat,
+                    desc: desc,
+                    image: imgUrl,
+                    badge: "تخفيض 25% لأول أوردر"
+                });
+                document.getElementById('new-prod-name').value = '';
+                document.getElementById('new-prod-desc').value = '';
+                fileInput.value = '';
+                document.getElementById('admin-stat-count').textContent = storeState.products.length;
+                persistStore();
+                renderAdminProducts();
+                showToast("تمت إضافة القطعة الجديدة بنجاح!");
+            };
+
+            if (fileInput.files && fileInput.files[0]) {
+                compressUploadedImage(fileInput.files[0], finish);
+            } else {
+                finish(createArtisticPlaceholder(name));
+            }
+        }
+
+        // عرض قائمة المنتجات في الإدارة
+        function renderAdminProducts() {
+            const list = document.getElementById('admin-products-list');
+            const query = (document.getElementById('admin-search-input')?.value || '').trim().toLowerCase();
+            list.innerHTML = '';
+
+            storeState.products
+                .filter(p => !query || p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query))
+                .forEach((product) => {
+                    const realIndex = storeState.products.findIndex(item => item.id === product.id);
+                    const row = document.createElement('div');
+                    row.className = 'p-3.5 rounded-2xl bg-cream/70 border border-caramel/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3';
+                    row.innerHTML = `
+                        <div class="flex items-center gap-3 w-full sm:w-auto">
+                            <img src="${product.image}" class="w-16 h-16 rounded-xl object-cover border border-caramel/30 shrink-0 bg-sand">
+                            <div class="flex-grow">
+                                <span class="text-[10px] font-bold text-caramel block">${product.category}</span>
+                                <input type="text" value="${product.name}" onchange="updateProductName(${realIndex}, this.value)" class="font-bold text-espresso text-sm bg-transparent border-b border-transparent focus:border-espresso focus:outline-none w-full">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 self-end sm:self-center shrink-0">
+                            <label class="cursor-pointer bg-espresso hover:bg-espressoLight text-cream text-xs font-bold px-3.5 py-2 rounded-xl transition-colors shadow-sm">
+                                <i class="fa-solid fa-camera ml-1 text-caramelLight"></i> إرفاق صورتك
+                                <input type="file" accept="image/*" class="hidden" onchange="replaceProductImage(${realIndex}, this)">
+                            </label>
+                            <button onclick="deleteAdminProduct(${realIndex})" class="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-bold px-3 py-2 rounded-xl cursor-pointer" title="حذف القطعة">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    list.appendChild(row);
+                });
+        }
+
+        function updateProductName(index, newName) {
+            if (newName.trim()) {
+                storeState.products[index].name = newName.trim();
+                persistStore();
+                showToast("تم تعديل الاسم");
+            }
+        }
+
+        function replaceProductImage(index, input) {
+            if (input.files && input.files[0]) {
+                compressUploadedImage(input.files[0], (dataUrl) => {
+                    storeState.products[index].image = dataUrl;
+                    persistStore();
+                    if (!document.getElementById('admin-modal').classList.contains('hidden')) {
+                        renderAdminProducts();
+                    }
+                    showToast("تم تحديث صورة المنتج بنجاح!");
+                });
+            }
+        }
+
+        // رفع عدة صور دفعة واحدة وتوزيعها تلقائياً على المنتجات
+        function handleBulkImageUpload(input) {
+            const files = Array.from(input.files || []);
+            if (files.length === 0) return;
+
+            let processedCount = 0;
+            const limit = Math.min(files.length, storeState.products.length);
+
+            files.slice(0, limit).forEach((file, idx) => {
+                compressUploadedImage(file, (dataUrl) => {
+                    storeState.products[idx].image = dataUrl;
+                    processedCount++;
+                    if (processedCount === limit) {
+                        persistStore();
+                        renderAdminProducts();
+                        input.value = '';
+                        showToast(`تم تحديث ${limit} صورة بنجاح دفعة واحدة!`);
+                    }
+                });
+            });
+        }
+
+        function deleteAdminProduct(index) {
+            storeState.products.splice(index, 1);
+            document.getElementById('admin-stat-count').textContent = storeState.products.length;
+            persistStore();
+            renderAdminProducts();
+            showToast("تم حذف القطعة");
+        }
+
+        // تصدير الموقع بالكامل في ملف HTML واحد مستقل متضمن للوجو والصور المرفوعة
+        function downloadStandaloneHTML() {
+            const docClone = document.documentElement.cloneNode(true);
+            const scripts = docClone.querySelectorAll('script');
+            const mainScript = scripts[scripts.length - 1];
+            let scriptText = mainScript.textContent;
+            
+            scriptText = scriptText.replace(
+                /let storeState = JSON\.parse\(localStorage\.getItem\('twin_full_catalog_v1'\)\) \|\| \{[\s\S]*?\n        \};/,
+                `let storeState = JSON.parse(localStorage.getItem('twin_full_catalog_v1')) || ${JSON.stringify(storeState, null, 4)};`
+            );
+            mainScript.textContent = scriptText;
+
+            const adminModal = docClone.querySelector('#admin-modal');
+            if (adminModal) adminModal.classList.add('hidden');
+            const loginModal = docClone.querySelector('#login-modal');
+            if (loginModal) loginModal.classList.add('hidden');
+
+            const finalHtml = '<!DOCTYPE html>\n' + docClone.outerHTML;
+            const blob = new Blob([finalHtml], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast("تم تحميل ملف index.html الجاهز للرفع!");
+        }
+
+        window.onload = function() {
+            updateUI();
+        };
+    </script>
+</body>
+</html>
